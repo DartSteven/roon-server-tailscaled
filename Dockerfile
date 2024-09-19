@@ -1,6 +1,3 @@
-# Maintainer information
-LABEL maintainer="dartsteven@icloud.com"
-
 # First stage: build the image with necessary dependencies
 FROM debian:12-slim AS builder
 
