@@ -1,0 +1,44 @@
+services:
+  roon-server:
+    container_name: Roon-Server-Tailscaled
+    image: dartsteven/roon-server-tailscaled:1.0
+    hostname: roon
+    restart: unless-stopped
+    mac_address: d0:ca:ab:cd:ef:01  # Random MAC address (optional)
+    networks:
+      vlan:
+        ipv4_address: 192.168.1.100   # Static IP address for the container
+    cap_add:
+      - NET_ADMIN
+    security_opt:
+      - seccomp:unconfined
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - ENABLE_TAILSCALE=enable # Set to false to disable Tailscale
+      - TAILSCALE_AUTHKEY=tskey-auth-xxxxxxxxxxxxxxxx-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx # Tailscale authentication key
+      - TAILSCALE_EXTRA_ARGS=--hostname=roondocker --auto-update --reset
+      - ROON_VERSION=EarlyAccess # # Set to EarlyAccess for early access version, or leave blank for stable version
+      - TZ=Europe/Rome
+    ports:
+      - "0.0.0.0:9003:9003/udp"
+      - "0.0.0.0:9100-9200:9100-9200/tcp"
+      - "0.0.0.0:55000:55002/tcp"
+    volumes:
+      - ./tailscale:/var/lib/tailscale Volume for Tailscale data
+      - ./roon-docker/roon/data:/opt/RoonServer
+      - ./roon-docker/roon/cache:/var/roon
+      - ./Roon-Backups:/mnt/lvm/backup/Roon-Backups:rw
+      - ./Music:/music:ro
+      - /run/udev:/run/udev:ro
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+      - /tmp:/tmp:rw
+    devices:
+      - /dev/bus/usb:/dev/bus/usb
+      - /dev/snd:/dev/snd
+      - /dev/net/tun:/dev/net/tun
+networks:
+  vlan:
+    external: true
+
