@@ -35,8 +35,6 @@ When Tailscale is enabled, it will automatically start when the container is lau
 In the docker-compose file, use these variables to configure Tailscale:
 
 - `TAILSCALE_AUTHKEY`: Your Tailscale API key for authentication.
-
-- `TAILSCALE_ADVERTISE_ROUTES`: Network routes that Tailscale will advertise.
 - `TAILSCALE_EXTRA_ARGS`: Additional arguments for more granular control of Tailscale.
 
 ## 4. Using ipvlan/macvlan for Network Isolation
