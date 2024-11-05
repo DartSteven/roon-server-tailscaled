@@ -2,7 +2,7 @@
 LABEL maintainer="dartsteven@icloud.com"
 
 # First stage: build the image with necessary dependencies
-FROM debian:12-slim AS builder
+FROM debian:12.7-slim AS builder
 
 # Set the user to root
 USER root
@@ -37,11 +37,11 @@ RUN echo "${TZ}" > /etc/timezone \
 RUN usermod -a -G audio root
 
 # Download and install ffmpeg
-RUN wget https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-n7.0-latest-linux64-gpl-7.0.tar.xz \
-    && tar -xf ffmpeg-n7.0-latest-linux64-gpl-7.0.tar.xz ffmpeg-n7.0-latest-linux64-gpl-7.0/bin/ffmpeg \
-    && mv ffmpeg-n7.0-latest-linux64-gpl-7.0/bin/ffmpeg /usr/local/bin/ffmpeg \
+RUN wget https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-n7.1-latest-linux64-gpl-7.1.tar.xz \
+    && tar -xf ffmpeg-n7.1-latest-linux64-gpl-7.1.tar.xz ffmpeg-n7.1-latest-linux64-gpl-7.1/bin/ffmpeg \
+    && mv ffmpeg-n7.1-latest-linux64-gpl-7.1/bin/ffmpeg /usr/local/bin/ffmpeg \
     && chmod 777 /usr/local/bin/ffmpeg \
-    && rm -rf ffmpeg-n7.0-latest-linux64-gpl-7.0*
+    && rm -rf ffmpeg-n7.1-latest-linux64-gpl-7.1*
 
 # Install Tailscale
 RUN curl -fsSL https://tailscale.com/install.sh | sh
@@ -58,6 +58,7 @@ RUN mkdir -p /opt/RoonServer /var/roon
 
 # Second stage: create the final image
 FROM debian:12-slim
+FROM debian:12.7-slim
 
 # Set the user to root
 USER root
