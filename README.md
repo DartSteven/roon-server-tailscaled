@@ -93,8 +93,4 @@ That's it! You're now running Roon Server with Tailscale integration.
 
 ## CHANGELOG
 
-<<<<<<< HEAD
-05/11/2024 Version 1.1 : Updated ffmpeg to 7.1, updated debian to 12.7-slim
-=======
-05/11/2024 Updated ffmpeg to 7.1
->>>>>>> 93c4c1a3bc1327e04ec3308d046e7c1c39c981e6
+05/11/2024 Version 1.1 : Updated ffmpeg to 7.1 and debian to 12.7-slim
