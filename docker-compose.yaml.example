@@ -25,10 +25,10 @@ services:
       - "0.0.0.0:9100-9200:9100-9200/tcp"
       - "0.0.0.0:55000:55002/tcp"
     volumes:
-      - ./tailscale:/var/lib/tailscale Volume for Tailscale data
+      - ./tailscale:/var/lib/tailscale #Volume for Tailscale data
       - ./roon-docker/roon/data:/opt/RoonServer
       - ./roon-docker/roon/cache:/var/roon
-      - ./Roon-Backups:/mnt/lvm/backup/Roon-Backups:rw
+      - ./Roon-Backups:/Roon-Backups:rw
       - ./Music:/music:ro
       - /run/udev:/run/udev:ro
       - /etc/localtime:/etc/localtime:ro

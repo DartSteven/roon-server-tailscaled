@@ -25,8 +25,6 @@ To enable Tailscale, set the `ENABLE_TAILSCALE` environment variable to true:
 environment:
   - ENABLE_TAILSCALE=true
   - TAILSCALE_AUTHKEY=your_tailscale_authkey # Authentication key for Tailscale
-  - TAILSCALE_HOSTNAME=your_tailscale_hostname # Tailscale device hostname
-  - TAILSCALE_ADVERTISE_ROUTES=192.168.1.0/24 # Routes to advertise via Tailscale
   - TAILSCALE_EXTRA_ARGS=--reset --accept-routes # Additional arguments for Tailscale
 ```
 
@@ -37,8 +35,6 @@ When Tailscale is enabled, it will automatically start when the container is lau
 In the docker-compose file, use these variables to configure Tailscale:
 
 - `TAILSCALE_AUTHKEY`: Your Tailscale API key for authentication.
-- `TAILSCALE_HOSTNAME`: A unique hostname for this instance in Tailscale.
-- `TAILSCALE_ADVERTISE_ROUTES`: Network routes that Tailscale will advertise.
 - `TAILSCALE_EXTRA_ARGS`: Additional arguments for more granular control of Tailscale.
 
 ## 4. Using ipvlan/macvlan for Network Isolation
@@ -97,4 +93,8 @@ That's it! You're now running Roon Server with Tailscale integration.
 
 ## CHANGELOG
 
+<<<<<<< HEAD
 05/11/2024 Version 1.1 : Updated ffmpeg to 7.1, updated debian to 12.7-slim
+=======
+05/11/2024 Updated ffmpeg to 7.1
+>>>>>>> 93c4c1a3bc1327e04ec3308d046e7c1c39c981e6
