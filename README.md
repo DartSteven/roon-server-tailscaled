@@ -89,3 +89,8 @@ docker-compose up -d
 ```
 
 That's it! You're now running Roon Server with Tailscale integration.
+
+
+## CHANGELOG
+
+05/11/2024 Updated ffmpeg to 7.1
