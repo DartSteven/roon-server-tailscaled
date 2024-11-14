@@ -1,5 +1,5 @@
 # First stage: build the image with necessary dependencies
-FROM debian:12.7-slim AS builder
+FROM debian:12.8-slim AS builder
 
 # Set the user to root
 USER root
@@ -55,7 +55,7 @@ RUN mkdir -p /opt/RoonServer /var/roon
 
 # Second stage: create the final image
 FROM debian:12-slim
-FROM debian:12.7-slim
+FROM debian:12.8-slim
 
 # Set the user to root
 USER root
