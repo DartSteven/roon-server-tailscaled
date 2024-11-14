@@ -95,4 +95,5 @@ That's it! You're now running Roon Server with Tailscale integration.
 
 
 14/11/2024 Version 1.2 : Update to debian 12.8-slim
+
 05/11/2024 Version 1.1 : Updated ffmpeg to 7.1 and debian to 12.7-slim
